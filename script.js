@@ -17,7 +17,7 @@ window.addEventListener('resize', updateThread);
 window.addEventListener('DOMContentLoaded', updateThread);
 
 // Reveal-on-scroll leggero per le card progetto e la timeline
-const revealTargets = document.querySelectorAll('.project-card, .timeline-item, .skill-group');
+const revealTargets = document.querySelectorAll('.project-card, .timeline-item, .skill-group, .service-group');
 if ('IntersectionObserver' in window) {
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {

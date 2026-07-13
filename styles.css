@@ -353,6 +353,26 @@ a{color:inherit;}
 }
 .skill-group p{ margin:0; font-size:0.92rem; opacity:0.85; }
 
+/* ---------- Servizi (home per clienti) ---------- */
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+}
+.service-group{ background:var(--crema); padding:34px; }
+.section-alt .service-group{ background:var(--crema); }
+.service-group h3{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:1.22rem;
+  margin:0 0 10px;
+  color:var(--bordeaux-deep);
+}
+.service-group p{ margin:0; font-size:0.97rem; opacity:0.85; }
+@media (max-width: 860px){ .services-grid{ grid-template-columns:1fr; } }
+
 /* ---------- Contact ---------- */
 .contact-grid{
   display:grid;
