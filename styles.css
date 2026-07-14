@@ -526,6 +526,69 @@ a{color:inherit;}
   margin-bottom:10px;
 }
 
+/* ---------- Come lavoro (metodo) ---------- */
+.steps{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:40px;
+}
+.step-num{
+  display:block;
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:3.2rem;
+  line-height:1;
+  color:var(--oro);
+  margin-bottom:14px;
+}
+.step h3{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:1.32rem;
+  margin:0 0 12px;
+  color:var(--bordeaux-deep);
+}
+.step p{ margin:0; font-size:0.97rem; line-height:1.7; opacity:0.85; }
+@media (max-width: 860px){ .steps{ grid-template-columns:1fr; gap:32px; } }
+
+/* ---------- FAQ ---------- */
+.faq{ max-width:720px; }
+.faq details{
+  border-bottom:1px solid var(--line);
+}
+.faq summary{
+  cursor:pointer;
+  list-style:none;
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:16px;
+  padding:22px 0;
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:1.18rem;
+  color:var(--bordeaux-deep);
+  transition:color 0.2s;
+}
+.faq summary::-webkit-details-marker{ display:none; }
+.faq summary::after{
+  content:'+';
+  font-family:var(--font-mono);
+  font-size:1.1rem;
+  color:var(--oro);
+  flex-shrink:0;
+  transition:transform 0.2s ease;
+}
+.faq details[open] summary::after{ content:'−'; }
+.faq summary:hover{ color:var(--bordeaux); }
+.faq details p{
+  margin:0;
+  padding:0 32px 22px 0;
+  max-width:640px;
+  opacity:0.85;
+  line-height:1.7;
+}
+
 /* ---------- WhatsApp flottante ---------- */
 .wa-float{
   position:fixed;

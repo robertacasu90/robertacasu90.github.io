@@ -17,7 +17,7 @@ window.addEventListener('resize', updateThread);
 window.addEventListener('DOMContentLoaded', updateThread);
 
 // Reveal-on-scroll con stagger per card, timeline, servizi
-const revealTargets = document.querySelectorAll('.project-card, .timeline-item, .skill-group, .service-group');
+const revealTargets = document.querySelectorAll('.project-card, .timeline-item, .skill-group, .service-group, .step, .faq details');
 if ('IntersectionObserver' in window) {
   const io = new IntersectionObserver((entries) => {
     // stagger: gli elementi che entrano insieme si rivelano in sequenza
