@@ -16,23 +16,25 @@ window.addEventListener('scroll', updateThread, { passive: true });
 window.addEventListener('resize', updateThread);
 window.addEventListener('DOMContentLoaded', updateThread);
 
-// Reveal-on-scroll leggero per le card progetto e la timeline
+// Reveal-on-scroll con stagger per card, timeline, servizi
 const revealTargets = document.querySelectorAll('.project-card, .timeline-item, .skill-group, .service-group');
 if ('IntersectionObserver' in window) {
   const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-        io.unobserve(entry.target);
-      }
+    // stagger: gli elementi che entrano insieme si rivelano in sequenza
+    entries.filter(e => e.isIntersecting).forEach((entry, i) => {
+      const el = entry.target;
+      el.style.transitionDelay = (i * 70) + 'ms';
+      el.classList.add('in');
+      el.addEventListener('transitionend', () => {
+        el.style.transitionDelay = '';
+        el.classList.remove('pre', 'in');
+      }, { once: true });
+      io.unobserve(el);
     });
   }, { threshold: 0.12 });
 
   revealTargets.forEach((el) => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(14px)';
-    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    el.classList.add('pre');
     io.observe(el);
   });
 }

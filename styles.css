@@ -415,8 +415,126 @@ a{color:inherit;}
   opacity:0.55;
 }
 
+/* ---------- Hero split con composizione demo ---------- */
+.hero--split{
+  display:grid;
+  grid-template-columns:1.05fr 0.95fr;
+  gap:56px;
+  align-items:center;
+}
+.hero-visual{ position:relative; height:460px; }
+.hv{ position:absolute; }
+.hv--1{ top:0; left:0; width:76%; transform:rotate(-5deg); z-index:1; }
+.hv--2{ top:27%; right:0; width:72%; transform:rotate(3deg); z-index:2; }
+.hv--3{ bottom:0; left:8%; width:68%; transform:rotate(-2deg); z-index:3; }
+.hv{ transition:transform 0.35s ease, z-index 0s; }
+.hv:hover{ transform:rotate(0deg) scale(1.04); z-index:10; }
+.hv-card{
+  display:block;
+  border:1px solid var(--line);
+  border-radius:6px;
+  overflow:hidden;
+  background:var(--crema);
+  box-shadow:0 24px 48px rgba(42,31,34,0.20);
+  padding-top:26px;
+  position:relative;
+  animation:hv-float 7s ease-in-out infinite;
+}
+.hv--2 .hv-card{ animation-duration:8.5s; animation-delay:0.8s; }
+.hv--3 .hv-card{ animation-duration:6.2s; animation-delay:0.3s; }
+.hv-card::before{
+  content:'';
+  position:absolute; top:0; left:0; right:0; height:26px;
+  background:
+    radial-gradient(circle 4px at 15px 13px, var(--rosa) 98%, transparent),
+    radial-gradient(circle 4px at 30px 13px, var(--oro) 98%, transparent),
+    radial-gradient(circle 4px at 45px 13px, var(--crema) 98%, transparent),
+    var(--bordeaux-deep);
+}
+.hv-card img{ width:100%; display:block; }
+@keyframes hv-float{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(-9px); }
+}
+
+/* ---------- Entrance hero ---------- */
+@keyframes rise{
+  from{ opacity:0; transform:translateY(18px); }
+  to{ opacity:1; transform:none; }
+}
+.hero-eyebrow{ animation:rise 0.65s ease both; }
+.hero-name{ animation:rise 0.65s ease 0.08s both; }
+.hero-role{ animation:rise 0.65s ease 0.16s both; }
+.hero-lede{ animation:rise 0.65s ease 0.24s both; }
+.hero-badge{ animation:rise 0.65s ease 0.30s both; }
+.hero-actions{ animation:rise 0.65s ease 0.34s both; }
+.hero-visual{ animation:rise 0.8s ease 0.25s both; }
+
+/* ---------- Reveal allo scroll (con stagger da JS) ---------- */
+.pre{ opacity:0; transform:translateY(18px); }
+.pre.in{
+  opacity:1; transform:none;
+  transition:opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* ---------- Micro-interazioni ---------- */
+.topbar-nav a{ position:relative; }
+.topbar-nav a::after{
+  content:'';
+  position:absolute; left:0; bottom:-4px;
+  width:100%; height:1.5px;
+  background:var(--oro);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform 0.25s ease;
+}
+.topbar-nav a:hover::after{ transform:scaleX(1); }
+
+.project-card{ transition:transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
+.project-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 18px 40px rgba(42,31,34,0.12);
+  border-color:var(--oro);
+}
+.service-group{ transition:background 0.25s ease; }
+.service-group:hover{ background:#F9F2ED; }
+
+.btn-arrow::after{
+  content:'→';
+  margin-left:10px;
+  display:inline-block;
+  transition:transform 0.2s ease;
+}
+.btn-arrow:hover::after{ transform:translateX(4px); }
+
+.service-num{
+  display:block;
+  font-family:var(--font-mono);
+  font-size:0.75rem;
+  letter-spacing:0.12em;
+  color:var(--oro);
+  margin-bottom:10px;
+}
+
+/* ---------- WhatsApp flottante ---------- */
+.wa-float{
+  position:fixed;
+  right:22px; bottom:22px;
+  z-index:60;
+  width:54px; height:54px;
+  border-radius:50%;
+  background:var(--bordeaux);
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 10px 26px rgba(42,31,34,0.32);
+  transition:transform 0.2s ease, background 0.2s ease;
+}
+.wa-float:hover{ transform:scale(1.08); background:var(--bordeaux-deep); }
+.wa-float svg{ width:26px; height:26px; fill:var(--crema); }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 860px){
+  .hero--split{ grid-template-columns:1fr; gap:40px; }
+  .hero-visual{ height:340px; max-width:440px; }
   .topbar{ padding:16px 24px; }
   .topbar-nav{ gap:18px; }
   .topbar-nav a{ font-size:0.82rem; }
