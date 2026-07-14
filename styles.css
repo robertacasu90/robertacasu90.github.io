@@ -19,6 +19,13 @@
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 
+/* Focus visibile e coerente: la cura dei dettagli si vede anche da tastiera */
+a:focus-visible, button:focus-visible{
+  outline:2px solid var(--oro);
+  outline-offset:3px;
+  border-radius:2px;
+}
+
 body{
   margin:0;
   background:var(--crema);
@@ -100,11 +107,11 @@ a{color:inherit;}
 .hero-name{
   font-family:var(--font-display);
   font-weight:600;
-  font-size:clamp(2.4rem, 5.5vw, 4rem);
-  line-height:1.02;
+  font-size:clamp(3rem, 7vw, 5.2rem);
+  line-height:0.98;
   margin:0 0 28px;
   color:var(--bordeaux-deep);
-  letter-spacing:-0.01em;
+  letter-spacing:-0.02em;
 }
 .hero-role{
   font-family:var(--font-display);
@@ -117,10 +124,11 @@ a{color:inherit;}
 .hero-role-sep{ color:var(--oro); font-style:normal; margin:0 6px; }
 .hero-lede{
   max-width:560px;
-  font-size:1.08rem;
+  font-size:1.14rem;
+  line-height:1.7;
   color:var(--ink);
   opacity:0.85;
-  margin:0 0 24px;
+  margin:0 0 28px;
 }
 .hero-badge{
   display:inline-block;
@@ -155,7 +163,7 @@ a{color:inherit;}
 .section{
   max-width:var(--maxw);
   margin:0 auto;
-  padding:88px 48px;
+  padding:clamp(88px, 11vw, 120px) 48px;
   position:relative;
 }
 .section-alt{
@@ -174,9 +182,10 @@ a{color:inherit;}
   gap:20px;
   font-family:var(--font-display);
   font-weight:600;
-  font-size:clamp(1.8rem, 3.4vw, 2.4rem);
+  font-size:clamp(2rem, 4.2vw, 3rem);
   color:var(--bordeaux-deep);
-  margin:0 0 48px;
+  margin:0 0 56px;
+  letter-spacing:-0.01em;
 }
 .section-num{
   font-family:var(--font-mono);
@@ -191,9 +200,10 @@ a{color:inherit;}
 }
 .section-intro{
   max-width:640px;
-  font-size:1.02rem;
+  font-size:1.08rem;
+  line-height:1.7;
   opacity:0.82;
-  margin:-28px 0 44px;
+  margin:-32px 0 52px;
 }
 
 /* ---------- Timeline ---------- */
@@ -262,7 +272,7 @@ a{color:inherit;}
 .project-grid{
   display:grid;
   grid-template-columns:repeat(2, 1fr);
-  gap:28px;
+  gap:32px;
 }
 .project-card{
   background:var(--crema);
@@ -312,7 +322,7 @@ a{color:inherit;}
 .project-card h3{
   font-family:var(--font-display);
   font-weight:600;
-  font-size:1.25rem;
+  font-size:1.38rem;
   margin:0;
 }
 .project-desc{ margin:0; opacity:0.85; font-size:0.96rem; }
@@ -366,11 +376,11 @@ a{color:inherit;}
 .service-group h3{
   font-family:var(--font-display);
   font-weight:600;
-  font-size:1.22rem;
-  margin:0 0 10px;
+  font-size:1.32rem;
+  margin:0 0 12px;
   color:var(--bordeaux-deep);
 }
-.service-group p{ margin:0; font-size:0.97rem; opacity:0.85; }
+.service-group p{ margin:0; font-size:0.97rem; line-height:1.7; opacity:0.85; }
 @media (max-width: 860px){ .services-grid{ grid-template-columns:1fr; } }
 
 /* ---------- Contact ---------- */
